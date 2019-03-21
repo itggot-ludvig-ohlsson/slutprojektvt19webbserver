@@ -3,6 +3,13 @@
 # Projektplan
 
 ## 1. Projektbeskrivning
+Idéer:
+- Reddit-ish
+- Vanligt forum
+- Online IDE
+- Idea board
+- StackOverflow-ish
+
 ## 2. Vyer (sidor)
 ## 3. Funktionalitet (med sekvensdiagram)
 ## 4. Arkitektur (Beskriv filer och mappar)
