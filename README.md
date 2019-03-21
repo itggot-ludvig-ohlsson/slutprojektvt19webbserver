@@ -4,7 +4,7 @@
 
 ## 1. Projektbeskrivning
 Idéer:
-- Reddit-ish
+- Reddit-ish (men med infitite subreddits?)
 - Vanligt forum
 - Online IDE
 - Idea board
