@@ -10,11 +10,13 @@ html lang="en"
     body
         .grid
             .title
-                h1 Title
+                h1
+                    a href="/" Title
             .nav
                 p Nav
             .account-nav
-                p Account nav
+                a href="/register" Register
+                a href="/login" Login
             .content
                 == yield
             .side
