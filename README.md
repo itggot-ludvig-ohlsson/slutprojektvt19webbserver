@@ -9,6 +9,7 @@ Idéer:
 - Online IDE
 - Idea board
 - StackOverflow-ish
+- Blocket-ish
 
 ## 2. Vyer (sidor)
 ## 3. Funktionalitet (med sekvensdiagram)
