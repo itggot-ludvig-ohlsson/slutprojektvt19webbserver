@@ -24,6 +24,14 @@ body, html {
 .title {
     grid-area: title;
     height: 5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.title h1 {
+    font-size: 3em;
+    margin: 0;
 }
 
 .content {
