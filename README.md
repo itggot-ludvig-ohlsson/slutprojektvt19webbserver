@@ -17,12 +17,10 @@ Idéer:
 
 ### Subs
 - Txt
-
-#### About
-- Txt
-
-#### Posts
-- Txt
+- #### About
+  - Txt
+- #### Posts
+  - Txt
 
 ## 3. Funktionalitet (med sekvensdiagram)
 ## 4. Arkitektur (Beskriv filer och mappar)
