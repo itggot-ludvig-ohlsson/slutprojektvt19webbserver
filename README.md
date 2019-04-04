@@ -3,24 +3,22 @@
 # Projektplan
 
 ## 1. Projektbeskrivning
-Idéer:
-- Reddit-ish (men med infitite subreddits?)
-- Vanligt forum
-- Online IDE
-- Idea board
-- StackOverflow-ish
-- Blocket-ish
+Reddit-ish men med infinite subreddits
 
 ## 2. Vyer (sidor)
 ### Frontpage
-- Txt
+- List of subreddits
+- List of posts
 
 ### Subs
-- Txt
+- List of posts/subs
 - #### About
-  - Txt
 - #### Posts
-  - Txt
+- #### Subs
+  - Redirects to sub
+
+### Accounts
+- #### About
 
 ## 3. Funktionalitet (med sekvensdiagram)
 ## 4. Arkitektur (Beskriv filer och mappar)
