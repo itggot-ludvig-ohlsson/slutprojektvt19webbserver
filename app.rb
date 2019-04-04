@@ -6,5 +6,5 @@ require 'bcrypt'
 enable :sessions
 
 get('/') do
-    "TODO"
+    slim(:index)
 end
