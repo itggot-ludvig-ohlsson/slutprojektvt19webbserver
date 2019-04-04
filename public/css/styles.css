@@ -1,0 +1,41 @@
+body, html {
+    margin: 0;
+    padding: 0 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 0.75fr 1.5fr 0.75fr;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas: "title . ."
+                         ". content side"
+                         "footer footer footer";
+}
+
+.grid > * {
+    border: 1px dashed gray;
+}
+  
+.title {
+    grid-area: title;
+    height: 5rem;
+}
+
+.content {
+    grid-area: content;
+}
+
+.side {
+    grid-area: side;
+}
+
+.footer {
+    grid-area: footer;
+    height: 3rem;
+    text-align: center;
+}
