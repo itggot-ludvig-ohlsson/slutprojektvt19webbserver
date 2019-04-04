@@ -12,6 +12,18 @@ Idéer:
 - Blocket-ish
 
 ## 2. Vyer (sidor)
+### Frontpage
+- Txt
+
+### Subs
+- Txt
+
+#### About
+- Txt
+
+#### Posts
+- Txt
+
 ## 3. Funktionalitet (med sekvensdiagram)
 ## 4. Arkitektur (Beskriv filer och mappar)
 ## 5. (Databas med ER-diagram)
