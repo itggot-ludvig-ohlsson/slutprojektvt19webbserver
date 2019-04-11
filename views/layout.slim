@@ -23,5 +23,8 @@ html lang="en"
                 == yield
             .side
                 h1 Subs
+                - subs.each do |sub|
+                    a href="/sub/#{sub["id"]}" #{sub["name"]}
+                    br
             .footer
                 p Footer
