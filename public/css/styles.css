@@ -57,3 +57,22 @@ body, html {
     height: 3rem;
     text-align: center;
 }
+
+.sub {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "posts sub-about";
+    height: 100%;
+}
+
+.sub > * {
+    outline: 1px dashed darkgray;
+}
+
+.sub.posts {
+    grid-area: posts;
+}
+
+.sub.about {
+    grid-area: sub-about;
+}
