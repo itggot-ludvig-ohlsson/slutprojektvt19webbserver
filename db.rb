@@ -34,3 +34,11 @@ def get_sub_info(id)
 
     db.execute("SELECT name, about FROM subs WHERE id=?", id)[0]
 end
+
+def new_sub(name)
+    db = SQLite3::Database.new(DB_PATH)
+    db.results_as_hash = true
+
+    db.execute("INSERT INTO subs (name) VALUES (?)", name)
+    db.execute("SELECT seq FROM sqlite_sequence WHERE name='subs'")
+end

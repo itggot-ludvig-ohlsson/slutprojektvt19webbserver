@@ -48,6 +48,11 @@ get('/sub/create') do
     slim(:create_sub)
 end
 
+post('/sub/create') do
+    id = new_sub(params["name"])[0][0]
+    redirect("/sub/#{id}")
+end
+
 get('/sub/:id') do
     id = params["id"].to_i
     sub = get_sub_info(id)
