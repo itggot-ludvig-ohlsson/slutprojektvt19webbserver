@@ -21,7 +21,7 @@ post('/register') do
 end
 
 get('/login') do
-    slim(:login)
+    slim(:login, locals: {fail: params["fail"]})
 end
 
 post('/login') do
@@ -30,5 +30,31 @@ post('/login') do
         redirect('/')
     else
         redirect('/login?fail=true')
+    end
+end
+
+get('/user/:id') do
+    id = params["id"].to_i
+    usr = get_user_info(id)
+    
+    if usr
+        slim(:user, locals: {usr: usr})
+    else
+        redirect back
+    end
+end
+
+get('/sub/create') do
+    slim(:create_sub)
+end
+
+get('/sub/:id') do
+    id = params["id"].to_i
+    sub = get_sub_info(id)
+
+    if sub
+        slim(:sub, locals: {sub: sub})
+    else
+        redirect back
     end
 end
