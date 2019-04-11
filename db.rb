@@ -4,7 +4,7 @@ def register(username, password)
     db = SQLite3::Database.new(DB_PATH)
 
     password = BCrypt::Password.create(password)
-    db.execute("INSERT INTO users (username, hashed_pass) VALUES (?,?)", username, password)
+    db.execute("INSERT INTO users (username, hashed_pass) VALUES (?, ?)", username, password)
 end
 
 def login(username, password)
@@ -14,7 +14,7 @@ def login(username, password)
     credentials = db.execute("SELECT id, hashed_pass FROM users WHERE username=?", username)[0]
 
     if credentials != nil && BCrypt::Password.new(credentials["hashed_pass"]) == password
-        session[:user] = credentials["id"]
+        session[:account] = credentials["id"]
         true
     else
         false
@@ -35,11 +35,11 @@ def get_sub_info(id)
     db.execute("SELECT name, about FROM subs WHERE id=?", id)[0]
 end
 
-def new_sub(name)
+def new_sub(name, creator)
     db = SQLite3::Database.new(DB_PATH)
     db.results_as_hash = true
 
-    db.execute("INSERT INTO subs (name) VALUES (?)", name)
+    db.execute("INSERT INTO subs (name, owner) VALUES (?, ?)", name, creator)
     db.execute("SELECT seq FROM sqlite_sequence WHERE name='subs'")
 end
 

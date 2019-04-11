@@ -45,12 +45,16 @@ get('/user/:id') do
 end
 
 get('/sub/create') do
-    slim(:create_sub)
+    slim(:create_sub, locals: {subs: get_subs()})
 end
 
 post('/sub/create') do
-    id = new_sub(params["name"])[0][0]
-    redirect("/sub/#{id}")
+    if session[:account]
+        id = new_sub(params["name"], session[:account])[0][0]
+        redirect("/sub/#{id}")
+    else
+        redirect("/login")
+    end
 end
 
 get('/sub/:id') do
