@@ -27,6 +27,8 @@ body, html {
     display: grid;
     justify-content: center;
     align-items: center;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
 }
 
 .title h1 {
