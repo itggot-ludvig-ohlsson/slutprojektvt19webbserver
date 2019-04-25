@@ -17,8 +17,13 @@ html lang="en"
                 a href="#" TODO
                 a href="#" ...
             .account-nav
-                a href="/register" Register
-                a href="/login" Login
+                - if session_id
+                    a href="/user/#{session_id}" My account
+                    form method="POST" action="/logout" id="logout-form"
+                        input type="Submit" value="Logout"
+                - else
+                    a href="/register" Register
+                    a href="/login" Login
             .content
                 == yield
             .side

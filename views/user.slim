@@ -1,1 +1,7 @@
 h1 #{usr["username"]}
+h2 About me
+textarea (readonly) #{usr["bio"]}
+
+- if session_id == profile_id.to_i
+    button
+        a href="#{session_id}/edit" Edit
