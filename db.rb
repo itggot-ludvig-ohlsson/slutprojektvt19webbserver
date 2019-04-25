@@ -37,7 +37,12 @@ def get_sub_info(id)
     db = SQLite3::Database.new(DB_PATH)
     db.results_as_hash = true
 
-    db.execute("SELECT name, about FROM subs WHERE id=?", id)[0]
+    db.execute("SELECT name, about, owner FROM subs WHERE id=?", id)[0]
+end
+
+def update_sub_info(id, new_info)
+    db = SQLite3::Database.new(DB_PATH)
+    db.execute("UPDATE subs SET about=? WHERE id=?", new_info, id)
 end
 
 def new_sub(name, creator)

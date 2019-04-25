@@ -89,8 +89,30 @@ get('/sub/:id') do
     sub = get_sub_info(id)
 
     if sub
-        slim(:sub, locals: {session_id: session[:account], subs: get_subs(), sub: sub})
+        slim(:sub, locals: {session_id: session[:account], subs: get_subs(), sub: sub, sub_id: id})
     else
         redirect back
     end
+end
+
+get('/sub/:id/edit') do
+    id = params["id"].to_i
+    sub = get_sub_info(id)
+    
+    if session[:account] == sub["owner"]
+        slim(:edit_sub, locals: {session_id: session[:account], subs: get_subs(), sub: sub})
+    else
+        redirect back
+    end
+end
+
+post('/sub/:id/edit') do
+    id = params["id"].to_i
+    sub = get_sub_info(id)
+    
+    if session[:account] == sub["owner"]
+        update_sub_info(id, params["sub-info"])
+    end
+
+    redirect("/sub/#{id}")
 end
