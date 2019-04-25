@@ -49,6 +49,28 @@ get('/user/:id') do
     end
 end
 
+get('/user/:id/edit') do
+    id = params["id"].to_i
+    usr = get_user_info(id)
+    
+    if session[:account] == id
+        slim(:edit_user, locals: {session_id: session[:account], subs: get_subs(), usr: usr})
+    else
+        redirect back
+    end
+end
+
+post('/user/:id/edit') do
+    id = params["id"].to_i
+    usr = get_user_info(id)
+    
+    if session[:account] == id
+        update_bio(id, params["bio-content"])
+    end
+
+    redirect("/user/#{id}")
+end
+
 get('/sub/create') do
     slim(:create_sub, locals: {session_id: session[:account], subs: get_subs()})
 end

@@ -28,6 +28,11 @@ def get_user_info(id)
     db.execute("SELECT username, bio FROM users WHERE id=?", id)[0]
 end
 
+def update_bio(id, new_bio)
+    db = SQLite3::Database.new(DB_PATH)
+    db.execute("UPDATE users SET bio=? WHERE id=?", new_bio, id)
+end
+
 def get_sub_info(id)
     db = SQLite3::Database.new(DB_PATH)
     db.results_as_hash = true
