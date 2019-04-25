@@ -116,3 +116,10 @@ post('/sub/:id/edit') do
 
     redirect("/sub/#{id}")
 end
+
+get('/sub/:id/post') do
+    id = params["id"].to_i
+    sub = get_sub_info(id)
+
+    slim(:create_post, locals: {session_id: session[:account], subs: get_subs(), sub: sub})
+end

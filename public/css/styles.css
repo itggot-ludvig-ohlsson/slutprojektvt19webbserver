@@ -12,9 +12,9 @@ body, html {
     min-height: 100vh;
     grid-template-columns: 0.75fr 1.5fr 0.75fr;
     grid-template-rows: min-content 1fr min-content;
-    grid-template-areas: "title nav account-nav"
+    grid-template-areas: "title   nav     account-nav"
                          "content content side"
-                         "footer footer footer";
+                         "footer  footer  footer";
 }
 
 .grid > * {
@@ -61,9 +61,10 @@ body, html {
 .sub {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: min-content 1fr 1fr;
     grid-template-areas: "sub-title sub-title"
-                         "sub-posts sub-about";
+                         "sub-posts sub-about"
+                         "sub-posts sub-new";
     height: 100%;
 }
 
@@ -81,4 +82,19 @@ body, html {
 
 .sub.about {
     grid-area: sub-about;
+}
+
+.sub.new-post {
+    grid-area: sub-new;
+}
+
+#post-form {
+    display: grid;
+    width: 50%;
+    grid-gap: 1rem;
+}
+
+#new-post-title {
+    font-weight: bold;
+    font-size: 1.5em;
 }
