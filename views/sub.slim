@@ -1,7 +1,12 @@
 .sub
     h1 #{sub["name"]}
     .posts
-        p Posts
+        - posts.each do |post|
+            .post
+                h3
+                    a href="/post/#{post["id"]}" #{post["title"]}
+                em by 
+                a href="/user/#{post["owner"]}" #{post["username"]}
     .about
         h2 About
         textarea (readonly) #{sub["about"]}

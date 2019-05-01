@@ -72,13 +72,21 @@ post('/user/:id/edit') do
 end
 
 get('/sub/create') do
-    slim(:create_sub, locals: {session_id: session[:account], subs: get_subs()})
+    if session[:account]
+        slim(:create_sub, locals: {session_id: session[:account], subs: get_subs()})
+    else
+        redirect('/login')
+    end
 end
 
 post('/sub/create') do
     if session[:account]
-        id = new_sub(params["name"], session[:account])[0][0]
-        redirect("/sub/#{id}")
+        if params["name"].length > 0 # still allows for a space as a name though
+            id = new_sub(params["name"], session[:account])[0][0]
+            redirect("/sub/#{id}")
+        else
+            redirect back
+        end
     else
         redirect("/login")
     end
@@ -89,7 +97,7 @@ get('/sub/:id') do
     sub = get_sub_info(id)
 
     if sub
-        slim(:sub, locals: {session_id: session[:account], subs: get_subs(), sub: sub, sub_id: id})
+        slim(:sub, locals: {session_id: session[:account], subs: get_subs(), sub: sub, sub_id: id, posts: get_posts(id)})
     else
         redirect back
     end
@@ -118,8 +126,22 @@ post('/sub/:id/edit') do
 end
 
 get('/sub/:id/post') do
-    id = params["id"].to_i
-    sub = get_sub_info(id)
+    if session[:account]
+        id = params["id"].to_i
+        sub = get_sub_info(id) # May need to variable name, seems to conflict with existing function
 
-    slim(:create_post, locals: {session_id: session[:account], subs: get_subs(), sub: sub})
+        slim(:create_post, locals: {session_id: session[:account], subs: get_subs(), sub: sub})
+    else
+        redirect('/login')
+    end
+end
+
+post('/sub/:id/post') do
+    id = params["id"].to_i
+
+    if session[:account]
+        new_post(session[:account], id, params["title"], params["post-content"])
+    end
+
+    redirect("/sub/#{id}")
 end

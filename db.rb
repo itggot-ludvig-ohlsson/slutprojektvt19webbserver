@@ -59,3 +59,15 @@ def get_subs()
 
     db.execute("SELECT id, name FROM subs")
 end
+
+def new_post(poster, sub, title, content)
+    db = SQLite3::Database.new(DB_PATH)
+    db.execute("INSERT INTO posts (title, content, owner, sub) VALUES (?, ?, ?, ?)", title, content, poster, sub)
+end
+
+def get_posts(sub)
+    db = SQLite3::Database.new(DB_PATH)
+    db.results_as_hash = true
+
+    db.execute("SELECT posts.id, title, username, owner FROM posts INNER JOIN users ON users.id=posts.owner WHERE sub=?", sub)
+end
