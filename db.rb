@@ -71,3 +71,10 @@ def get_posts(sub)
 
     db.execute("SELECT posts.id, title, username, owner FROM posts INNER JOIN users ON users.id=posts.owner WHERE sub=?", sub)
 end
+
+def get_post_info(id)
+    db = SQLite3::Database.new(DB_PATH)
+    db.results_as_hash = true
+
+    db.execute("SELECT owner, username, title, content FROM posts INNER JOIN users ON users.id=posts.owner WHERE posts.id=?", id)[0]
+end

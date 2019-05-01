@@ -1,0 +1,8 @@
+h1 #{post["title"]}
+em by 
+a href="/user/#{post["owner"]}" #{post["username"]}
+textarea (readonly) #{post["content"]}
+
+- if session_id == post["owner"]
+    button
+        a href="post/#{id}/edit" Edit [TODO]
