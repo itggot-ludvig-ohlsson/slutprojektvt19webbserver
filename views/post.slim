@@ -11,6 +11,8 @@ textarea (readonly) #{post["content"]}
     br
     button
         a href="post/#{id}/edit" Edit [TODO]
+    form method="POST" action="/post/#{id}/delete"
+        input type="Submit" value="Delete"
 
 - if session_id
     br

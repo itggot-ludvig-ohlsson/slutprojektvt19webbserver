@@ -95,3 +95,8 @@ def vote(id, voteup)
         db.execute("UPDATE posts SET votes=votes-1 WHERE id=?", id)
     end
 end
+
+def delete(id)
+    db = SQLite3::Database.new(DB_PATH)
+    db.execute("DELETE FROM posts WHERE id=?", id)
+end

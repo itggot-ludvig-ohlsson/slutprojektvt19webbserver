@@ -148,7 +148,13 @@ end
 
 get('/post/:id') do
     id = params["id"].to_i
-    slim(:post, locals: {session_id: session[:account], subs: get_subs(), post: get_post_info(id), id: id})
+    post_info = get_post_info(id)
+
+    if post_info
+        slim(:post, locals: {session_id: session[:account], subs: get_subs(), post: post_info, id: id})
+    else
+        redirect back
+    end
 end
 
 post('/post/:id/voteup') do
@@ -169,4 +175,14 @@ post('/post/:id/votedown') do
     end
 
     redirect back
+end
+
+post('/post/:id/delete') do
+    id = params["id"].to_i
+
+    if session[:account] == get_post_info(id)["owner"]
+        delete(id)
+    end
+
+    redirect('/')
 end
