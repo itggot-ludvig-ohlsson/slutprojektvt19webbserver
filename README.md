@@ -3,22 +3,48 @@
 # Projektplan
 
 ## 1. Projektbeskrivning
-Reddit-ish men med infinite subreddits
+Reddit-ish
 
 ## 2. Vyer (sidor)
-### Frontpage
-- List of subreddits
-- List of posts
+### Alla vyer
+- Lista av subs
+- Navbar
 
-### Subs
-- List of posts/subs
-- #### About
-- #### Posts
-- #### Subs
-  - Redirects to sub
+### /register
+- Registrering av användare
 
-### Accounts
-- #### About
+### /login
+- Inloggning
+
+### /
+- Lista av posts
+
+### /sub/:id
+- Lista av posts
+- Info om subben
+
+### /post/:id
+- Visa post
+- Titel
+- Content
+- #### Info
+    - Antal röster
+    - Post author
+
+### /user/:id
+- User bio
+
+### /create_post
+- Skapa post
+
+### /create_sub
+- Skapa sub
+
+### /edit_sub
+- Ändra på infon om en sub
+
+### /edit_user
+- Ändra "about me" på ens profil
 
 ## 3. Funktionalitet (med sekvensdiagram)
 ## 4. Arkitektur (Beskriv filer och mappar)

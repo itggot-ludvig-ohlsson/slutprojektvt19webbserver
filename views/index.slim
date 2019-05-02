@@ -1,1 +1,17 @@
 h1 Posts
+.posts
+- posts.reverse.each do |post|
+    .post
+        h3
+            a href="/post/#{post["id"]}" #{post["title"]}
+        em by 
+        a href="/user/#{post["owner"]}" #{post["username"]}
+        br
+        em #{post["votes"]} vote(s)
+        - if session_id
+            br
+            br
+            form method="POST" action="/post/#{post["id"]}/voteup"
+                button type="submit" Vote up
+            form method="POST" action="/post/#{post["id"]}/votedown"
+                button type="submit" Vote down

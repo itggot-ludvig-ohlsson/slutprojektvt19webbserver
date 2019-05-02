@@ -8,7 +8,7 @@ require_relative 'db.rb'
 enable :sessions
 
 get('/') do
-    slim(:index, locals: {session_id: session[:account], subs: get_subs()})
+    slim(:index, locals: {session_id: session[:account], subs: get_subs(), posts: get_all_posts()})
 end
 
 get('/register') do

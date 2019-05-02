@@ -1,7 +1,7 @@
 .sub
     h1 #{sub["name"]}
     .posts
-        - posts.each do |post|
+        - posts.reverse.each do |post|
             .post
                 h3
                     a href="/post/#{post["id"]}" #{post["title"]}
