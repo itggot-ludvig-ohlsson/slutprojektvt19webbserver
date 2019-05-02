@@ -80,6 +80,10 @@ body, html {
     grid-area: sub-posts;
 }
 
+.post {
+    outline: 1px dashed lightgray;
+}
+
 .sub.about {
     grid-area: sub-about;
 }
