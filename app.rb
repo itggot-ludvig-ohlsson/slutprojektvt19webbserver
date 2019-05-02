@@ -150,3 +150,23 @@ get('/post/:id') do
     id = params["id"].to_i
     slim(:post, locals: {session_id: session[:account], subs: get_subs(), post: get_post_info(id), id: id})
 end
+
+post('/post/:id/voteup') do
+    id = params["id"].to_i
+
+    if session[:account]
+        vote(id, true)
+    end
+
+    redirect back
+end
+
+post('/post/:id/votedown') do
+    id = params["id"].to_i
+
+    if session[:account]
+        vote(id, false)
+    end
+
+    redirect back
+end

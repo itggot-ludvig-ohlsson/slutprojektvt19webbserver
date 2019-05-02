@@ -62,19 +62,29 @@ end
 
 def new_post(poster, sub, title, content)
     db = SQLite3::Database.new(DB_PATH)
-    db.execute("INSERT INTO posts (title, content, owner, sub) VALUES (?, ?, ?, ?)", title, content, poster, sub)
+    db.execute("INSERT INTO posts (title, content, owner, sub, votes) VALUES (?, ?, ?, ?, ?)", title, content, poster, sub, 0)
 end
 
 def get_posts(sub)
     db = SQLite3::Database.new(DB_PATH)
     db.results_as_hash = true
 
-    db.execute("SELECT posts.id, title, username, owner FROM posts INNER JOIN users ON users.id=posts.owner WHERE sub=?", sub)
+    db.execute("SELECT posts.id, title, username, owner, votes FROM posts INNER JOIN users ON users.id=posts.owner WHERE sub=?", sub)
 end
 
 def get_post_info(id)
     db = SQLite3::Database.new(DB_PATH)
     db.results_as_hash = true
 
-    db.execute("SELECT owner, username, title, content FROM posts INNER JOIN users ON users.id=posts.owner WHERE posts.id=?", id)[0]
+    db.execute("SELECT owner, username, title, content, votes FROM posts INNER JOIN users ON users.id=posts.owner WHERE posts.id=?", id)[0]
+end
+
+def vote(id, voteup)
+    db = SQLite3::Database.new(DB_PATH)
+
+    if voteup
+        db.execute("UPDATE posts SET votes=votes+1 WHERE id=?", id)
+    else
+        db.execute("UPDATE posts SET votes=votes-1 WHERE id=?", id)
+    end
 end

@@ -1,8 +1,21 @@
 h1 #{post["title"]}
 em by 
 a href="/user/#{post["owner"]}" #{post["username"]}
+br
+em #{post["votes"]} vote(s)
+br
+br
 textarea (readonly) #{post["content"]}
 
 - if session_id == post["owner"]
+    br
     button
         a href="post/#{id}/edit" Edit [TODO]
+
+- if session_id
+    br
+    br
+    form method="POST" action="/post/#{id}/voteup"
+        button type="submit" Vote up
+    form method="POST" action="/post/#{id}/votedown"
+        button type="submit" Vote down
