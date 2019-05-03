@@ -47,7 +47,7 @@ Forum likt Reddit där man bl.a. kan skapa subs, posts, kommentarer och ha en pr
 - Ändra "about me" på ens profil
 
 ## 3. Funktionalitet (med sekvensdiagram)
-**TODO:** Sekvensdiagram här
+![Post Creation Sequence Diagram](/Sequence Diagram.png)
 
 Utöver vad sekvensdiagramet visar finns även dessa funktioner:
 - TODO
