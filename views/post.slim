@@ -10,14 +10,26 @@ textarea (readonly) #{post["content"]}
 - if session_id == post["owner"]
     br
     button
-        a href="post/#{id}/edit" Edit [TODO]
-    form method="POST" action="/post/#{id}/delete"
+        a href="#{id}/edit" Edit [TODO]
+    form method="POST" action="#{id}/delete"
         input type="Submit" value="Delete"
 
 - if session_id
     br
     br
-    form method="POST" action="/post/#{id}/voteup"
+    form method="POST" action="#{id}/voteup"
         button type="submit" Vote up
-    form method="POST" action="/post/#{id}/votedown"
+    form method="POST" action="#{id}/votedown"
         button type="submit" Vote down
+
+button
+    a href="#{id}/comment" Post comment
+
+h2 Comments
+- comments.each do |comment|
+    textarea (readonly) #{comment["content"]}
+    br
+    em by 
+    a href="/user/#{comment["owner"]}" #{comment["username"]}
+    br
+    br

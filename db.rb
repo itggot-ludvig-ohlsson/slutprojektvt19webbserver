@@ -100,3 +100,15 @@ def delete(id)
     db = SQLite3::Database.new(DB_PATH)
     db.execute("DELETE FROM posts WHERE id=?", id)
 end
+
+def new_comment(commenter, post, content)
+    db = SQLite3::Database.new(DB_PATH)
+    db.execute("INSERT INTO comments (owner, post, content) VALUES (?, ?, ?)", commenter, post, content)
+end
+
+def get_comments(id)
+    db = SQLite3::Database.new(DB_PATH)
+    db.results_as_hash = true
+
+    db.execute("SELECT owner, username, content FROM comments INNER JOIN users ON users.id=comments.owner")
+end

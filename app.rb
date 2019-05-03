@@ -151,7 +151,7 @@ get('/post/:id') do
     post_info = get_post_info(id)
 
     if post_info
-        slim(:post, locals: {session_id: session[:account], subs: get_subs(), post: post_info, id: id})
+        slim(:post, locals: {session_id: session[:account], subs: get_subs(), post: post_info, id: id, comments: get_comments(id)})
     else
         redirect back
     end
@@ -185,4 +185,25 @@ post('/post/:id/delete') do
     end
 
     redirect('/')
+end
+
+get('/post/:id/comment') do
+    if session[:account]
+        id = params["id"].to_i
+        post = get_post_info(id)
+
+        slim(:create_comment, locals: {session_id: session[:account], subs: get_subs(), post: post})
+    else
+        redirect('/login')
+    end
+end
+
+post('/post/:id/comment') do
+    id = params["id"].to_i
+
+    if session[:account]
+        new_comment(session[:account], id, params["comment-content"])
+    end
+
+    redirect("/post/#{id}")
 end
