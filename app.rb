@@ -157,6 +157,28 @@ get('/post/:id') do
     end
 end
 
+get('/post/:id/edit') do
+    id = params["id"].to_i
+    post = get_post_info(id)
+    
+    if session[:account] == post["owner"]
+        slim(:edit_post, locals: {session_id: session[:account], subs: get_subs(), post: post})
+    else
+        redirect back
+    end
+end
+
+post('/post/:id/edit') do
+    id = params["id"].to_i
+    post = get_post_info(id)
+    
+    if session[:account] == post["owner"]
+        update_post(id, params["title"], params["post-content"])
+    end
+
+    redirect("/post/#{id}")
+end
+
 post('/post/:id/voteup') do
     id = params["id"].to_i
 

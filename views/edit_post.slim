@@ -1,0 +1,6 @@
+h1 Editing post #{post["title"]}
+
+form method="POST" id="post-form"
+    input id="new-post-title" name="title" type="text" value="#{post["title"]}"
+    textarea id="post-content" name="post-content" #{post["content"]}
+    input type="submit" value="Save"

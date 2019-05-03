@@ -72,6 +72,11 @@ def get_posts(sub)
     db.execute("SELECT posts.id, title, username, owner, votes FROM posts INNER JOIN users ON users.id=posts.owner WHERE sub=?", sub)
 end
 
+def update_post(id, title, content)
+    db = SQLite3::Database.new(DB_PATH)
+    db.execute("UPDATE posts SET title=?, content=? WHERE id=?", title, content, id)
+end
+
 def get_all_posts()
     db = SQLite3::Database.new(DB_PATH)
     db.results_as_hash = true
