@@ -115,5 +115,5 @@ def get_comments(id)
     db = SQLite3::Database.new(DB_PATH)
     db.results_as_hash = true
 
-    db.execute("SELECT owner, username, content FROM comments INNER JOIN users ON users.id=comments.owner")
+    db.execute("SELECT owner, username, content FROM comments INNER JOIN users ON users.id=comments.owner WHERE post=?", id)
 end
