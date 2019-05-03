@@ -69,9 +69,13 @@ Resterande funktionalitet beskrivs under vyer.
     - Innehåller alla sidor i slim
     - 'layout.slim' bestämmer grundlayouten för varje sida
     - Resterande slim filer är för var sin sida
+- ### misc
+    - Innehåller filmen för webbsidans funktionalitet ('website_functionality.mp4')
 
 - 'app.rb' är Controller-delen av MVC och har koden för alla routes
 - 'db.rb' är Model-delen av MVC och har koden för interaktionen med databasen
+- 'ER.svg' och 'Sequence Diagram.png' är ER diagrammet respektive sekvensdiagrammet
+- ('README.md' är den här filen)
 
 ## 5. (Databas med ER-diagram)
 ![Entity Relations Diagram](ER.svg)
