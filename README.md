@@ -6,9 +6,10 @@
 Forum likt Reddit där man bl.a. kan skapa subs, posts, kommentarer och ha en profilsida.
 
 ## 2. Vyer (sidor)
-### Alla vyer
+### Alla vyer (layout)
 - Lista av subs
 - Navbar
+- Footer
 
 ### /register
 - Registrering av användare
@@ -17,10 +18,10 @@ Forum likt Reddit där man bl.a. kan skapa subs, posts, kommentarer och ha en pr
 - Inloggning
 
 ### /
-- Lista av posts
+- Lista av alla posts på hemsidan
 
 ### /sub/:id
-- Lista av posts
+- Lista av posts i subben
 - Info om subben
 
 ### /post/:id
@@ -31,26 +32,31 @@ Forum likt Reddit där man bl.a. kan skapa subs, posts, kommentarer och ha en pr
     - Antal röster
     - Post author
 
+### /post/:id/edit
+- Ändra post
+
 ### /user/:id
 - User bio
 
-### /create_post
+### /sub/:id/post
 - Skapa post
 
-### /create_sub
+### /sub/create
 - Skapa sub
 
-### /edit_sub
+### /sub/:id/edit
 - Ändra på infon om en sub
 
-### /edit_user
+### /user/:id/edit
 - Ändra "about me" på ens profil
+
+### /post/:id/comment
+- Kommentera på post
 
 ## 3. Funktionalitet (med sekvensdiagram)
 ![Post Creation Sequence Diagram](Sequence%20Diagram.png)
 
-Utöver vad sekvensdiagramet visar finns även dessa funktioner:
-- TODO
+Resterande funktionalitet beskrivs under vyer.
 
 ## 4. Arkitektur (Beskriv filer och mappar)
 - ### db
