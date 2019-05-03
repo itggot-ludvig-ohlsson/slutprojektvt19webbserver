@@ -68,4 +68,4 @@ Utöver vad sekvensdiagramet visar finns även dessa funktioner:
 - 'db.rb' är Model-delen av MVC och har koden för interaktionen med databasen
 
 ## 5. (Databas med ER-diagram)
-TODO
+![Entity Relations Diagram](ER.svg)
