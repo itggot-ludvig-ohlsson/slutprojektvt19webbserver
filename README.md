@@ -3,7 +3,7 @@
 # Projektplan
 
 ## 1. Projektbeskrivning
-Reddit-ish
+Forum likt Reddit där man bl.a. kan skapa subs, posts, kommentarer och ha en profilsida.
 
 ## 2. Vyer (sidor)
 ### Alla vyer
@@ -47,6 +47,11 @@ Reddit-ish
 - Ändra "about me" på ens profil
 
 ## 3. Funktionalitet (med sekvensdiagram)
+**TODO:** Sekvensdiagram här
+
+Utöver vad sekvensdiagramet visar finns även dessa funktioner:
+- TODO
+
 ## 4. Arkitektur (Beskriv filer och mappar)
 - ### db
     - Innehåller databasen 'db.db'
@@ -63,3 +68,4 @@ Reddit-ish
 - 'db.rb' är Model-delen av MVC och har koden för interaktionen med databasen
 
 ## 5. (Databas med ER-diagram)
+TODO
