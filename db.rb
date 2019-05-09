@@ -1,7 +1,7 @@
 module Model
     DB_PATH = 'db/db.db'
 
-    # Attempts to create a new user
+    # Creates a new user
     #
     # @param [String] username The username
     # @param [String] password The password
@@ -29,6 +29,13 @@ module Model
         end
     end
 
+    # Gets user info
+    #
+    # @param [Integer] id The user id
+    #
+    # @return [Hash]
+    #   * "username" [String] The username
+    #   * "bio" [String] The user's bio
     def get_user_info(id)
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
@@ -36,11 +43,23 @@ module Model
         db.execute("SELECT username, bio FROM users WHERE id=?", id)[0]
     end
 
+    # Updates user bio
+    #
+    # @param [Integer] id The user id
+    # @param [String] new_bio The updated user bio contents
     def update_bio(id, new_bio)
         db = SQLite3::Database.new(DB_PATH)
         db.execute("UPDATE users SET bio=? WHERE id=?", new_bio, id)
     end
 
+    # Gets sub info
+    #
+    # @param [Integer] id The sub id
+    #
+    # @return [Hash]
+    #   * "name" [String] The name of the sub
+    #   * "about" [String] The sub's about info
+    #   * "owner" [Integer] The sub's owner id
     def get_sub_info(id)
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
@@ -48,17 +67,27 @@ module Model
         db.execute("SELECT name, about, owner FROM subs WHERE id=?", id)[0]
     end
 
+    # Updates sub about info
+    #
+    # @param [Integer] id The sub id
+    # @param [String] new_info The updated sub about info
     def update_sub_info(id, new_info)
         db = SQLite3::Database.new(DB_PATH)
         db.execute("UPDATE subs SET about=? WHERE id=?", new_info, id)
     end
 
+    # Creates a new sub
+    #
+    # @param [String] name The name of the sub
+    # @param [Integer] creator The sub creator's user id
+    #
+    # @return [Integer] The id of the created sub
     def new_sub(name, creator)
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
 
         db.execute("INSERT INTO subs (name, owner) VALUES (?, ?)", name, creator)
-        db.execute("SELECT seq FROM sqlite_sequence WHERE name='subs'")
+        db.execute("SELECT seq FROM sqlite_sequence WHERE name='subs'")[0][0]
     end
 
     def get_subs()

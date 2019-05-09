@@ -137,7 +137,7 @@ end
 post('/sub/create') do
     if session[:account]
         if params["name"].length > 0 # still allows for a space as a name though
-            id = new_sub(params["name"], session[:account])[0][0]
+            id = new_sub(params["name"], session[:account])
             redirect("/sub/#{id}")
         else
             redirect back
