@@ -12,6 +12,12 @@ module Model
         db.execute("INSERT INTO users (username, hashed_pass) VALUES (?, ?)", username, password)
     end
 
+    # Attempts to login
+    #
+    # @param [String] username The username
+    # @param [String] password The password
+    #
+    # @return [Integer] The id of the user that was attempted to login to
     def login(username, password)
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
