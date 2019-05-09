@@ -1,6 +1,10 @@
 module Model
     DB_PATH = 'db/db.db'
 
+    # Attempts to create a new user
+    #
+    # @param [String] username The username
+    # @param [String] password The password
     def register(username, password)
         db = SQLite3::Database.new(DB_PATH)
 
