@@ -5,6 +5,8 @@ require 'bcrypt'
 
 require_relative 'db.rb'
 
+include Model
+
 enable :sessions
 
 get('/') do
@@ -25,8 +27,8 @@ get('/login') do
 end
 
 post('/login') do
-    success = login(params["username"], params["password"])
-    if success
+    session[:account] = login(params["username"], params["password"])
+    if session[:account]
         redirect('/')
     else
         redirect('/login?fail=true')

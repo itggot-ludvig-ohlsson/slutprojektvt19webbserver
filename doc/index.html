@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.19
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/custom.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-slutprojektvt19webbserver">slutprojektvt19webbserver</h1>
+
+<h1 id="label-Projektplan">Projektplan</h1>
+
+<h2 id="label-1.+Projektbeskrivning">1. Projektbeskrivning</h2>
+
+<p>Forum likt Reddit där man bl.a. kan skapa subs, posts, kommentarer och ha
+en profilsida.</p>
+
+<h2 id="label-2.+Vyer+-28sidor-29">2. Vyer (sidor)</h2>
+
+<h3 id="label-Alla+vyer+-28layout-29">Alla vyer (layout)</h3>
+<ul><li>
+<p>Lista av subs</p>
+</li><li>
+<p>Navbar</p>
+</li><li>
+<p>Footer</p>
+</li></ul>
+
+<h3 id="label-2Fregister">/register</h3>
+<ul><li>
+<p>Registrering av användare</p>
+</li></ul>
+
+<h3 id="label-2Flogin">/login</h3>
+<ul><li>
+<p>Inloggning</p>
+</li></ul>
+
+<h3 id="label-2F">/</h3>
+<ul><li>
+<p>Lista av alla posts på hemsidan</p>
+</li></ul>
+
+<h3 id="label-2Fsub-2F-3Aid">/sub/:id</h3>
+<ul><li>
+<p>Lista av posts i subben</p>
+</li><li>
+<p>Info om subben</p>
+</li></ul>
+
+<h3 id="label-2Fpost-2F-3Aid">/post/:id</h3>
+<ul><li>
+<p>Visa post</p>
+</li><li>
+<p>Titel</p>
+</li><li>
+<p>Content</p>
+</li><li>
+<h4 id="label-Info">Info</h4>
+<ul><li>
+<p>Antal röster</p>
+</li><li>
+<p>Post author</p>
+</li></ul>
+</li></ul>
+
+<h3 id="label-2Fpost-2F-3Aid-2Fedit">/post/:id/edit</h3>
+<ul><li>
+<p>Ändra post</p>
+</li></ul>
+
+<h3 id="label-2Fuser-2F-3Aid">/user/:id</h3>
+<ul><li>
+<p>User bio</p>
+</li></ul>
+
+<h3 id="label-2Fsub-2F-3Aid-2Fpost">/sub/:id/post</h3>
+<ul><li>
+<p>Skapa post</p>
+</li></ul>
+
+<h3 id="label-2Fsub-2Fcreate">/sub/create</h3>
+<ul><li>
+<p>Skapa sub</p>
+</li></ul>
+
+<h3 id="label-2Fsub-2F-3Aid-2Fedit">/sub/:id/edit</h3>
+<ul><li>
+<p>Ändra på infon om en sub</p>
+</li></ul>
+
+<h3 id="label-2Fuser-2F-3Aid-2Fedit">/user/:id/edit</h3>
+<ul><li>
+<p>Ändra “about me” på ens profil</p>
+</li></ul>
+
+<h3 id="label-2Fpost-2F-3Aid-2Fcomment">/post/:id/comment</h3>
+<ul><li>
+<p>Kommentera på post</p>
+</li></ul>
+
+<h2 id="label-3.+Funktionalitet+-28med+sekvensdiagram-29">3. Funktionalitet (med sekvensdiagram)</h2>
+
+<p><img src="Sequence%20Diagram.png"></p>
+
+<p>Resterande funktionalitet beskrivs under vyer.</p>
+
+<h2 id="label-4.+Arkitektur+-28Beskriv+filer+och+mappar-29">4. Arkitektur (Beskriv filer och mappar)</h2>
+<ul><li>
+<h3 id="label-db">db</h3>
+<ul><li>
+<p>Innehåller databasen &#39;db.db&#39;</p>
+</li><li>
+<p>Innehåller databasen &#39;db.db&#39;</p>
+</li></ul>
+</li><li>
+<h3 id="label-public">public</h3>
+<ul><li>
+<h4 id="label-css">css</h4>
+<ul><li>
+<p>Innehåller CSS för alla sidor (&#39;styles.css&#39;)</p>
+</li><li>
+<p>Innehåller CSS för alla sidor (&#39;styles.css&#39;)</p>
+</li></ul>
+</li><li>
+<h4 id="label-css">css</h4>
+<ul><li>
+<p>Innehåller CSS för alla sidor (&#39;styles.css&#39;)</p>
+</li></ul>
+</li></ul>
+</li><li>
+<h3 id="label-views">views</h3>
+<ul><li>
+<p>View-delen av MVC</p>
+</li><li>
+<p>Innehåller alla sidor i slim</p>
+</li><li>
+<p>&#39;layout.slim&#39; bestämmer grundlayouten för varje sida</p>
+</li><li>
+<p>Resterande slim filer är för var sin sida</p>
+</li><li>
+<p>View-delen av MVC</p>
+</li><li>
+<p>Innehåller alla sidor i slim</p>
+</li><li>
+<p>&#39;layout.slim&#39; bestämmer grundlayouten för varje sida</p>
+</li><li>
+<p>Resterande slim filer är för var sin sida</p>
+</li></ul>
+</li><li>
+<h3 id="label-misc">misc</h3>
+<ul><li>
+<p>Innehåller filmen för webbsidans funktionalitet
+(&#39;website_functionality.mp4&#39;)</p>
+</li><li>
+<p>Innehåller filmen för webbsidans funktionalitet
+(&#39;website_functionality.mp4&#39;)</p>
+</li></ul>
+</li><li>
+<p>&#39;app.rb&#39; är Controller-delen av MVC och har koden för alla routes</p>
+</li><li>
+<p>&#39;db.rb&#39; är Model-delen av MVC och har koden för interaktionen med
+databasen</p>
+</li><li>
+<p>&#39;ER.svg&#39; och &#39;Sequence Diagram.png&#39; är ER diagrammet
+respektive sekvensdiagrammet</p>
+</li><li>
+<p>(&#39;README.md&#39; är den här filen)</p>
+</li></ul>
+
+<h2 id="label-5.+-28Databas+med+ER-diagram-29">5. (Databas med ER-diagram)</h2>
+
+<p><img src="ER.svg"></p>
+</div></div>
+
+      <div id="footer">
+  Generated on Thu May  9 09:33:50 2019 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.19 (ruby-2.4.2).
+</div>
+
+    </div>
+  </body>
+</html>
