@@ -80,7 +80,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>db.rb</dd>
+    <dd>model.rb</dd>
   </dl>
   
 </div>
@@ -141,7 +141,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_all_posts-instance_method" title="#get_all_posts (instance method)">#<strong>get_all_posts</strong>  &#x21d2; Object </a>
+      <a href="#get_all_posts-instance_method" title="#get_all_posts (instance method)">#<strong>get_all_posts</strong>  &#x21d2; Array&lt;Hash&gt; </a>
     
 
     
@@ -155,7 +155,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets info about all posts.</p>
+</div></span>
   
 </li>
 
@@ -163,7 +165,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_comments-instance_method" title="#get_comments (instance method)">#<strong>get_comments</strong>(id)  &#x21d2; Object </a>
+      <a href="#get_comments-instance_method" title="#get_comments (instance method)">#<strong>get_comments</strong>(id)  &#x21d2; Array&lt;Hash&gt; </a>
     
 
     
@@ -177,7 +179,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets info about all comments on a post.</p>
+</div></span>
   
 </li>
 
@@ -185,7 +189,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_post_info-instance_method" title="#get_post_info (instance method)">#<strong>get_post_info</strong>(id)  &#x21d2; Object </a>
+      <a href="#get_post_info-instance_method" title="#get_post_info (instance method)">#<strong>get_post_info</strong>(id)  &#x21d2; Hash </a>
     
 
     
@@ -199,7 +203,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets info about a post.</p>
+</div></span>
   
 </li>
 
@@ -207,7 +213,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_posts-instance_method" title="#get_posts (instance method)">#<strong>get_posts</strong>(sub)  &#x21d2; Object </a>
+      <a href="#get_posts-instance_method" title="#get_posts (instance method)">#<strong>get_posts</strong>(sub)  &#x21d2; Array&lt;Hash&gt; </a>
     
 
     
@@ -221,7 +227,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets info about all posts in a sub.</p>
+</div></span>
   
 </li>
 
@@ -253,7 +261,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_subs-instance_method" title="#get_subs (instance method)">#<strong>get_subs</strong>  &#x21d2; Object </a>
+      <a href="#get_subs-instance_method" title="#get_subs (instance method)">#<strong>get_subs</strong>  &#x21d2; Array&lt;Hash&gt; </a>
     
 
     
@@ -267,7 +275,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Gets info about all subs.</p>
+</div></span>
   
 </li>
 
@@ -359,7 +369,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new post.</p>
+</div></span>
   
 </li>
 
@@ -453,7 +465,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Updates a post.</p>
+</div></span>
   
 </li>
 
@@ -528,13 +542,13 @@
       <pre class="lines">
 
 
-141
-142
-143
-144</pre>
+185
+186
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -548,27 +562,67 @@
       <div class="method_details ">
   <h3 class="signature " id="get_all_posts-instance_method">
   
-    #<strong>get_all_posts</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>get_all_posts</strong>  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets info about all posts</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>“id” [Integer] The id of the post</p>
+</li><li>
+<p>“title” [String] The title of the post</p>
+</li><li>
+<p>“username” [String] The username of the post creator</p>
+</li><li>
+<p>“owner” [Integer] The user id of the post creator</p>
+</li><li>
+<p>“votes” [Integer] The amount of votes the post has</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-117
-118
-119
-120
-121
-122</pre>
+151
+152
+153
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_all_posts'>get_all_posts</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -584,27 +638,83 @@
       <div class="method_details ">
   <h3 class="signature " id="get_comments-instance_method">
   
-    #<strong>get_comments</strong>(id)  &#x21d2; <tt>Object</tt> 
+    #<strong>get_comments</strong>(id)  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets info about all comments on a post</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post id where the comment is</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>“owner” [Integer] The user id of the comment creator</p>
+</li><li>
+<p>“username” [String] The username of the comment creator</p>
+</li><li>
+<p>“content” [String] The comment content</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-151
-152
-153
-154
-155
-156</pre>
+203
+204
+205
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 203</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_comments'>get_comments</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -620,27 +730,87 @@
       <div class="method_details ">
   <h3 class="signature " id="get_post_info-instance_method">
   
-    #<strong>get_post_info</strong>(id)  &#x21d2; <tt>Object</tt> 
+    #<strong>get_post_info</strong>(id)  &#x21d2; <tt>Hash</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets info about a post</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>“owner” [Integer] The user id of the post creator</p>
+</li><li>
+<p>“username” [String] The username of the post creator</p>
+</li><li>
+<p>“title” [String] The title of the post</p>
+</li><li>
+<p>“content” [String] The content of the post</p>
+</li><li>
+<p>“votes” [Integer] The amount of votes the post has</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-124
-125
-126
-127
-128
-129</pre>
+168
+169
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_post_info'>get_post_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -656,27 +826,87 @@
       <div class="method_details ">
   <h3 class="signature " id="get_posts-instance_method">
   
-    #<strong>get_posts</strong>(sub)  &#x21d2; <tt>Object</tt> 
+    #<strong>get_posts</strong>(sub)  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets info about all posts in a sub</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>sub</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The sub id where the post is</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>“id” [Integer] The id of the post</p>
+</li><li>
+<p>“title” [String] The title of the post</p>
+</li><li>
+<p>“username” [String] The username of the post creator</p>
+</li><li>
+<p>“owner” [Integer] The user id of the post creator</p>
+</li><li>
+<p>“votes” [Integer] The amount of votes the post has</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-105
-106
-107
-108
-109
-110</pre>
+126
+127
+128
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_posts'>get_posts</span><span class='lparen'>(</span><span class='id identifier rubyid_sub'>sub</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -768,7 +998,7 @@
 68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_sub_info'>get_sub_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -784,27 +1014,61 @@
       <div class="method_details ">
   <h3 class="signature " id="get_subs-instance_method">
   
-    #<strong>get_subs</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>get_subs</strong>  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets info about all subs</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>“id” [Integer] The id of the sub</p>
+</li><li>
+<p>“name” [String] The name of the sub</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-93
-94
-95
-96
-97
-98</pre>
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_subs'>get_subs</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -894,7 +1158,7 @@
 44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_user_info'>get_user_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1001,7 +1265,7 @@
 30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1033,13 +1297,13 @@
       <pre class="lines">
 
 
-146
-147
-148
-149</pre>
+190
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_comment'>new_comment</span><span class='lparen'>(</span><span class='id identifier rubyid_commenter'>commenter</span><span class='comma'>,</span> <span class='id identifier rubyid_post'>post</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1059,19 +1323,100 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new post</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>poster</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The poster&#39;s user id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sub</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The sub where to post</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>title</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post title</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>content</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post content</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-100
-101
-102
-103</pre>
+111
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_post'>new_post</span><span class='lparen'>(</span><span class='id identifier rubyid_poster'>poster</span><span class='comma'>,</span> <span class='id identifier rubyid_sub'>sub</span><span class='comma'>,</span> <span class='id identifier rubyid_title'>title</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1173,7 +1518,7 @@
 91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_sub'>new_sub</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_creator'>creator</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1259,7 +1604,7 @@
 13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1342,7 +1687,7 @@
 53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_bio'>update_bio</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_new_bio'>new_bio</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1362,19 +1707,84 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Updates a post</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>title</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post title</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>content</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post content</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-112
-113
-114
-115</pre>
+138
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_post'>update_post</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_title'>title</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1455,7 +1865,7 @@
 77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_sub_info'>update_sub_info</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_new_info'>new_info</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1481,18 +1891,18 @@
       <pre class="lines">
 
 
-131
-132
-133
-134
-135
-136
-137
-138
-139</pre>
+175
+176
+177
+178
+179
+180
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'db.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vote'>vote</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_voteup'>voteup</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1513,7 +1923,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu May 16 09:11:24 2019 by
+  Generated on Thu May 16 09:39:01 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.4.2).
 </div>

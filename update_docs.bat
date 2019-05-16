@@ -1,1 +1,1 @@
-bundle exec yardoc --plugin yard-sinatra app.rb db.rb
+bundle exec yardoc --plugin yard-sinatra app.rb model.rb

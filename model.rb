@@ -90,6 +90,11 @@ module Model
         db.execute("SELECT seq FROM sqlite_sequence WHERE name='subs'")[0][0]
     end
 
+    # Gets info about all subs
+    #
+    # @return [Array<Hash>]
+    #   * "id" [Integer] The id of the sub
+    #   * "name" [String] The name of the sub
     def get_subs()
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
@@ -97,11 +102,27 @@ module Model
         db.execute("SELECT id, name FROM subs")
     end
 
+    # Creates a new post
+    #
+    # @param [Integer] poster The poster's user id
+    # @param [Integer] sub The sub where to post
+    # @param [String] title The post title
+    # @param [String] content The post content
     def new_post(poster, sub, title, content)
         db = SQLite3::Database.new(DB_PATH)
         db.execute("INSERT INTO posts (title, content, owner, sub, votes) VALUES (?, ?, ?, ?, ?)", title, content, poster, sub, 0)
     end
 
+    # Gets info about all posts in a sub
+    #
+    # @param [Integer] sub The sub id where the post is
+    #
+    # @return [Array<Hash>]
+    #   * "id" [Integer] The id of the post
+    #   * "title" [String] The title of the post
+    #   * "username" [String] The username of the post creator
+    #   * "owner" [Integer] The user id of the post creator
+    #   * "votes" [Integer] The amount of votes the post has
     def get_posts(sub)
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
@@ -109,11 +130,24 @@ module Model
         db.execute("SELECT posts.id, title, username, owner, votes FROM posts INNER JOIN users ON users.id=posts.owner WHERE sub=?", sub)
     end
 
+    # Updates a post
+    #
+    # @param [Integer] id The post id
+    # @param [String] title The post title
+    # @param [String] content The post content
     def update_post(id, title, content)
         db = SQLite3::Database.new(DB_PATH)
         db.execute("UPDATE posts SET title=?, content=? WHERE id=?", title, content, id)
     end
 
+    # Gets info about all posts
+    #
+    # @return [Array<Hash>]
+    #   * "id" [Integer] The id of the post
+    #   * "title" [String] The title of the post
+    #   * "username" [String] The username of the post creator
+    #   * "owner" [Integer] The user id of the post creator
+    #   * "votes" [Integer] The amount of votes the post has
     def get_all_posts()
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
@@ -121,6 +155,16 @@ module Model
         db.execute("SELECT posts.id, title, username, owner, votes FROM posts INNER JOIN users ON users.id=posts.owner")
     end
 
+    # Gets info about a post
+    #
+    # @param [Integer] id The post id
+    #
+    # @return [Hash]
+    #   * "owner" [Integer] The user id of the post creator
+    #   * "username" [String] The username of the post creator
+    #   * "title" [String] The title of the post
+    #   * "content" [String] The content of the post
+    #   * "votes" [Integer] The amount of votes the post has
     def get_post_info(id)
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
@@ -148,6 +192,14 @@ module Model
         db.execute("INSERT INTO comments (owner, post, content) VALUES (?, ?, ?)", commenter, post, content)
     end
 
+    # Gets info about all comments on a post
+    #
+    # @param [Integer] id The post id where the comment is
+    #
+    # @return [Array<Hash>]
+    #   * "owner" [Integer] The user id of the comment creator
+    #   * "username" [String] The username of the comment creator
+    #   * "content" [String] The comment content
     def get_comments(id)
         db = SQLite3::Database.new(DB_PATH)
         db.results_as_hash = true
