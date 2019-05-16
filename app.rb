@@ -3,7 +3,7 @@ require 'sqlite3'
 require 'slim'
 require 'bcrypt'
 
-require_relative 'db.rb'
+require_relative 'model.rb'
 
 include Model
 
