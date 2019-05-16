@@ -2,4 +2,7 @@ h1 Register
 form method="POST"
     input name="username" type="text" placeholder="username"
     input name="password" type="password" placeholder="password"
+    input name="password2" type="password" placeholder="repeat password"
     input type="submit" value="Register"
+- if fail
+    p style="color:red" Invalid registration input

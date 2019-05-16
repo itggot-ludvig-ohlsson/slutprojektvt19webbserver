@@ -1,6 +1,18 @@
-# 
 module Model
     DB_PATH = 'db/db.db'
+
+    # Checks if any string in a hash is blank
+    #
+    # @param [Hash] fields, The hash
+    def any_field_empty(fields)
+        fields.each_value do |field|
+            if field.strip.empty?
+                return true
+            end
+        end
+
+        false
+    end
 
     # Creates a new user
     #

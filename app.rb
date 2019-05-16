@@ -19,20 +19,27 @@ end
 
 # Displays registration page
 #
+# @param [Boolean] fail, The registration failure boolean
+#
 # @see Model#get_subs
 get('/register') do
-    slim(:register, locals: {session_id: session[:account], subs: get_subs()})
+    slim(:register, locals: {session_id: session[:account], subs: get_subs(), fail: params["fail"]})
 end
 
 # Registers a user and redirects to '/login'
 #
 # @param [String] username, The username to register
 # @param [String] password, The password specified for the user
+# @param [String] password2, The password repeated
 #
 # @see Model#register
 post('/register') do
-    register(params["username"], params["password"])
-    redirect('/login')
+    if !any_field_empty(params) && params["password"] == params["password2"]
+        register(params["username"], params["password"])
+        redirect('/login')
+    else
+        redirect('/register?fail=true')
+    end
 end
 
 # Displays login page
@@ -136,7 +143,7 @@ end
 # @see Model#new_sub
 post('/sub/create') do
     if session[:account]
-        if params["name"].length > 0 # still allows for a space as a name though
+        if !any_field_empty(params)
             id = new_sub(params["name"], session[:account])
             redirect("/sub/#{id}")
         else
@@ -227,7 +234,7 @@ end
 post('/sub/:id/post') do
     id = params["id"].to_i
 
-    if session[:account]
+    if session[:account] && !any_field_empty(params)
         new_post(session[:account], id, params["title"], params["post-content"])
     end
 
@@ -281,7 +288,7 @@ post('/post/:id/edit') do
     id = params["id"].to_i
     post = get_post_info(id)
     
-    if session[:account] == post["owner"]
+    if session[:account] == post["owner"] && !any_field_empty(params)
         update_post(id, params["title"], params["post-content"])
     end
 
@@ -360,7 +367,7 @@ end
 post('/post/:id/comment') do
     id = params["id"].to_i
 
-    if session[:account]
+    if session[:account] && !any_field_empty(params)
         new_comment(session[:account], id, params["comment-content"])
     end
 
