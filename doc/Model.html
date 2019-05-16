@@ -133,7 +133,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Deletes a post.</p>
+</div></span>
   
 </li>
 
@@ -347,7 +349,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new comment.</p>
+</div></span>
   
 </li>
 
@@ -513,7 +517,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Votes on a post.</p>
+</div></span>
   
 </li>
 
@@ -536,19 +542,52 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Deletes a post</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The id of the post to delete</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-185
-186
-187
-188</pre>
+192
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 192</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -706,15 +745,15 @@
       <pre class="lines">
 
 
-203
-204
-205
-206
-207
-208</pre>
+215
+216
+217
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 203</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 215</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_comments'>get_comments</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1291,19 +1330,84 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new comment</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>commenter</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The commenter&#39;s user id</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>post</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The post where to comment</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>content</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The comment content</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-190
-191
-192
-193</pre>
+202
+203
+204
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_comment'>new_comment</span><span class='lparen'>(</span><span class='id identifier rubyid_commenter'>commenter</span><span class='comma'>,</span> <span class='id identifier rubyid_post'>post</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1885,24 +1989,73 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Votes on a post</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The id of the post to vote on</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>voteup</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The boolean stating if it&#39;s an upvote (true) or a downvote (false)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-175
-176
-177
-178
 179
 180
 181
 182
-183</pre>
+183
+184
+185
+186
+187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'model.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'model.rb', line 179</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vote'>vote</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_voteup'>voteup</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#DB_PATH-constant" title="Model::DB_PATH (constant)">DB_PATH</a></span></span><span class='rparen'>)</span>
@@ -1923,7 +2076,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu May 16 09:39:01 2019 by
+  Generated on Thu May 16 09:46:53 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.4.2).
 </div>

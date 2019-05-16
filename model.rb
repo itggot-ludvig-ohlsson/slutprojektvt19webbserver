@@ -1,3 +1,4 @@
+# 
 module Model
     DB_PATH = 'db/db.db'
 
@@ -172,6 +173,10 @@ module Model
         db.execute("SELECT owner, username, title, content, votes FROM posts INNER JOIN users ON users.id=posts.owner WHERE posts.id=?", id)[0]
     end
 
+    # Votes on a post
+    #
+    # @param [Integer] id The id of the post to vote on
+    # @param [Boolean] voteup The boolean stating if it's an upvote (true) or a downvote (false)
     def vote(id, voteup)
         db = SQLite3::Database.new(DB_PATH)
 
@@ -182,11 +187,19 @@ module Model
         end
     end
 
+    # Deletes a post
+    #
+    # @param [Integer] id The id of the post to delete
     def delete(id)
         db = SQLite3::Database.new(DB_PATH)
         db.execute("DELETE FROM posts WHERE id=?", id)
     end
 
+    # Creates a new comment
+    #
+    # @param [Integer] commenter The commenter's user id
+    # @param [Integer] post The post where to comment
+    # @param [String] content The comment content
     def new_comment(commenter, post, content)
         db = SQLite3::Database.new(DB_PATH)
         db.execute("INSERT INTO comments (owner, post, content) VALUES (?, ?, ?)", commenter, post, content)
