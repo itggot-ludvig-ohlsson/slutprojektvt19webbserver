@@ -1,3 +1,6 @@
+require 'sqlite3'
+require 'bcrypt'
+
 module Model
     DB_PATH = 'db/db.db'
 
@@ -14,15 +17,29 @@ module Model
         false
     end
 
-    # Creates a new user
+    # Checks if a user with the specified username is already registered
+    #
+    # @param [String] username, The username
+    #
+    # @return [Array] The array returned on success (returns nil on failure)
+    def user_exists(username)
+        db = SQLite3::Database.new(DB_PATH)
+        db.execute("SELECT id FROM users WHERE username=?", username)[0]
+    end
+
+    # Attempts to create a new user
     #
     # @param [String] username The username
     # @param [String] password The password
+    #
+    # @return [Array] The empty array returned on success (returns nil on failure)
     def register(username, password)
-        db = SQLite3::Database.new(DB_PATH)
+        if !user_exists(username)
+            db = SQLite3::Database.new(DB_PATH)
 
-        password = BCrypt::Password.create(password)
-        db.execute("INSERT INTO users (username, hashed_pass) VALUES (?, ?)", username, password)
+            password = BCrypt::Password.create(password)
+            db.execute("INSERT INTO users (username, hashed_pass) VALUES (?, ?)", username, password)
+        end
     end
 
     # Attempts to login

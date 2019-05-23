@@ -1,7 +1,5 @@
 require 'sinatra'
-require 'sqlite3'
 require 'slim'
-require 'bcrypt'
 
 require_relative 'model.rb'
 
@@ -35,8 +33,11 @@ end
 # @see Model#register
 post('/register') do
     if !any_field_empty(params) && params["password"] == params["password2"]
-        register(params["username"], params["password"])
-        redirect('/login')
+        if register(params["username"], params["password"])
+            redirect('/login')
+        else
+            redirect('/register?fail=true')
+        end
     else
         redirect('/register?fail=true')
     end
